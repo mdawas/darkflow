@@ -74,7 +74,7 @@ class TFNet(object):
 			with self.graph.as_default() as g:
 				self.build_forward()
 				self.setup_meta_ops()
-		self.say('Finished in {}s\n'.format(
+		self.say('Finished Building network in {}s\n'.format(
 			time.time() - start))
 	
 	def build_from_pb(self):

@@ -83,7 +83,10 @@ class checkpoint_loader(loader):
     one who understands .ckpt files, very much
     """
     def load(self, ckpt, ignore):
-        meta = ckpt + '.meta'
+        if ckpt[-5:] != '.meta':
+            meta = ckpt + '.meta'
+        else:
+            meta = ckpt
         with tf.Graph().as_default() as graph:
             with tf.Session().as_default() as sess:
                 saver = tf.train.import_meta_graph(meta)
